@@ -27,8 +27,8 @@ const router = jsonServer.router(db);
 server.use(router);
 
 // Start the server on port 3000
-const port =  3005;
+const port =  process.env.PORT || 3005;
 const host = '0.0.0.0';
 server.listen(port,host, () => {
-  console.log(`JSON Server is running on http://localhost:${port}`);
+  console.log(`JSON Server is running on http://${host}:${port}`);
 });
