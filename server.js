@@ -1,34 +1,15 @@
-// server.js
-const fs = require('fs');
-const path = require('path');
+// filepath: e:\VAM\autorepoServer\AutoRFP_server\server.js
 const jsonServer = require('json-server');
-const router = jsonServer.router('db.json'); 
-// Create a json-server instance
 const server = jsonServer.create();
+const router = jsonServer.router('db.json'); // Use db.json as the data source
 const middlewares = jsonServer.defaults();
 
-// Set default middlewares (logger, static, cors, etc.)
 server.use(middlewares);
-
-// Combine all data files
-const dataFiles = ['users.json', 'products.json', 'orders.json'];
-
-let db = {};
-dataFiles.forEach((file) => {
-  const filePath = path.join(__dirname, 'data', file);
-  const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-  db = { ...db, ...jsonData };
-});
-
-// Create a JSON router with merged data
-// const router = jsonServer.router(db);
-
-// Use the router
 server.use(router);
 
-// Start the server on port 3000
-const port =  process.env.PORT || 3005;
-const host = '0.0.0.0';
-server.listen(port,host, () => {
+const port = process.env.PORT || 3000; // Use Render's PORT or default to 3000
+const host = '0.0.0.0'; // Bind to 0.0.0.0 for external access
+
+server.listen(port, host, () => {
   console.log(`JSON Server is running on http://${host}:${port}`);
 });
