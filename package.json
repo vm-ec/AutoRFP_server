@@ -10,5 +10,8 @@
     "fs": "^0.0.1-security",
     "json-server": "^0.17.3",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
