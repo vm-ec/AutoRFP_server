@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsonServer = require('json-server');
-
+const router = jsonServer.router('db.json'); 
 // Create a json-server instance
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults();
@@ -21,7 +21,7 @@ dataFiles.forEach((file) => {
 });
 
 // Create a JSON router with merged data
-const router = jsonServer.router(db);
+// const router = jsonServer.router(db);
 
 // Use the router
 server.use(router);
