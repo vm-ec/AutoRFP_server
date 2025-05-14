@@ -7,8 +7,8 @@
     "server": "cross-env PORT=3000 json-server --watch db.json --port $PORT"
   },
   "dependencies": {
-    "json-server": "^1.0.0",
     "fs": "^0.0.1-security",
+    "json-server": "^0.17.3",
     "path": "^0.12.7"
   }
 }
