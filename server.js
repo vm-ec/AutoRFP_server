@@ -28,6 +28,7 @@ server.use(router);
 
 // Start the server on port 3000
 const port =  3005;
-server.listen(port, () => {
+const host = '0.0.0.0';
+server.listen(port,host, () => {
   console.log(`JSON Server is running on http://localhost:${port}`);
 });
